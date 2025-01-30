@@ -1,0 +1,88 @@
+.navbar{
+  width: 100%;
+  padding: 2vh 5%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  font-size: 1.1rem;
+  background: transparent;
+}
+
+.navbar-left{
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.head-logo{
+  font-weight: bold;
+  color: red;
+  font-size: 2rem;
+}
+
+.navbar-left ul{
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.navbar-left ul li{
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.navbar-left ul li:hover{
+  transition: all 0.3s ease;
+  color: red;
+  transform: scale(1.05);
+}
+
+.navbar-right{
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.icons{
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
+}
+.icons:hover{
+  transition: all 0.3s ease;
+  color: red;
+  transform: scale(1.1);
+}
+
+.navbar-profile{
+  padding: 0.5rem;
+  display: flex;
+  border-radius: 20%;
+  position: relative;
+}
+
+.dropdown{
+  position:absolute;
+  top: 100%;
+  right: 0;
+  width: max-content;
+  background: #191919;
+  padding: 1rem;
+  border-radius: 1rem;
+  text-decoration: underline;
+  display: none;
+}
+
+.dropdown p{
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.navbar-profile:hover .dropdown{
+  display: block;
+}
+
+.TabSelected{
+  color: red;
+}
+

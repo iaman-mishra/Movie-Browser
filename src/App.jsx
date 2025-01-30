@@ -1,25 +1,31 @@
+// Importing Dependencies
 import React from 'react'
 import { Routes, Route } from "react-router-dom";
 
-//Importing pages
+// Importing pages
 import Home from './pages/Home';
-import Movies from './pages/Movies'
-import Series from './pages/Series'
-import Kids from './pages/Kids'
-import Contacts from './pages/Contacts'
+import Movies from './pages/Movies';
+import Series from './pages/Series';
+import Kids from './pages/Kids';
+import Contacts from './pages/Contacts';
 
+
+// Importing Components
+import Navbar from './components/Navbar/Navbar';
 
 const App = () => {
   return (
-    <Routes>
-      <div>App</div>
-      <Route path="/" element={<Home/>} />
-      <Route path="/Movies" element={<Movies/>} />
-      <Route path="/Series" element={<Series/>} />
-      <Route path="/Kids" element={<Kids/>} />
-      <Route path="/Contacts" element={<Contacts/>} />
-    </Routes>
+    <>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/movies" element={<Movies />} />
+        <Route path="/series" element={<Series />} />
+        <Route path="/kids" element={<Kids />} />
+        <Route path="/contacts" element={<Contacts />} />
+      </Routes>
+    </>
   )
 }
 
-export default App
+export default App;
