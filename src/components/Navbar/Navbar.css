@@ -6,6 +6,7 @@
   position: fixed;
   font-size: 1.1rem;
   background: transparent;
+  z-index: 100;
 }
 
 .navbar-left{
@@ -71,7 +72,7 @@
   border-radius: 1rem;
   text-decoration: underline;
   display: none;
-}
+  z-index: 100;}
 
 .dropdown p{
   cursor: pointer;
