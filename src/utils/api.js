@@ -11,3 +11,10 @@ export const fetchMovies = async (query, page = 1) => {
     const response = await axios.get(url);
     return response.data.results;
 };
+
+
+export const fetchVideos = async (id)=>{
+    const url = `${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}`;
+    const response = await axios.get(url);
+    return response.data.results;
+}
