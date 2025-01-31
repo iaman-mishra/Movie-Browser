@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { fetchMovies, fetchVideos } from "../utils/api.js";
-import { Play } from "lucide-react";
+import { Flame, Play } from "lucide-react";
+import MovieCard from "../components/MovieCard/MovieCard.jsx";
 
 const Home = () => {
   const [movies, setMovies] = useState([]); // Store movie details
@@ -59,31 +60,51 @@ const Home = () => {
 
 
   return (
-    <div className="hero">
-      {movies.length > 0 && (
-        <>
-          <img
-            src={`https://image.tmdb.org/t/p/original${movies[currentIndex]?.backdrop_path}`}
-            alt={movies[currentIndex]?.title}
-            className="banner-img"
-          />
-          <div className="banner-description">
-            <p className="title">{movies[currentIndex]?.title}</p>
-            <p className="description">{movies[currentIndex]?.overview}</p>
+    <>
+
+
+      <div className="hero">
+        <img
+          src={`https://image.tmdb.org/t/p/original${movies[currentIndex]?.backdrop_path}`}
+          alt={movies[currentIndex]?.title}
+          className="banner-img"
+        />
+        <div className="banner-description">
+          <p className="title">{movies[currentIndex]?.title}</p>
+          <p className="description">{movies[currentIndex]?.overview}</p>
+        </div>
+        <div className="banner-buttons">
+          <div className="button">
+            <Play />
+            <a href={`https://www.youtube.com/watch?v=${videos[0]?.key}`} target="_blank" ><p>Trailer</p></a>
           </div>
-          <div className="banner-buttons">
-            <div className="button">
-              <Play />
-              <a href={`https://www.youtube.com/watch?v=${videos[0]?.key}`} target="_blank" ><p>Trailer</p></a>
-            </div>
-            <div className="button">
-              <p>More{console.log(videos.length)}</p>
-            </div>
+          <div className="button">
+            <p>More Info</p>
           </div>
-        </>
-      )}
-    </div>
+        </div>
+      </div>
+
+      
+      <div className="movie-card-section">
+        <h1>Trending Now <Flame className="fire" /></h1>
+        <div className="moviecards-container">
+          <MovieCard/>
+          <MovieCard/>
+          <MovieCard/>
+          <MovieCard/>
+          <MovieCard/>
+          <MovieCard/>
+          <MovieCard/>
+          <MovieCard/>
+          <MovieCard/>
+        </div>
+      </div>
+      
+
+    </>
   );
+
+
 };
 
 export default Home;

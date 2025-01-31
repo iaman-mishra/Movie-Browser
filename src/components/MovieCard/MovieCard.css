@@ -1,0 +1,68 @@
+.cardbox {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/* Image Styling */
+.cardbox img {
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Overlay Layer */
+.cardbox-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, background 0.5s ease-in-out;
+}
+
+/* Hover Effects */
+.cardbox:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.5);
+}
+
+.cardbox:hover .cardbox-layer {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+/* Text Styling */
+.cardbox-layer h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.cardbox-layer p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    max-width: 80%;
+}
+
+.cardbox-layer a {
+    color: red;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.cardbox-layer a:hover {
+    transform: scale(1.2);
+}
