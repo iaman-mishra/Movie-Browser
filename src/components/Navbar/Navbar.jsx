@@ -1,37 +1,46 @@
-import React from 'react'
-import './Navbar.css'
-import {Search, Sun, CircleUserRound, ChevronDown } from 'lucide-react'
-
-import { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import './Navbar.css';
+import { Search, Sun, CircleUserRound, ChevronDown } from 'lucide-react';
 
 const Navbar = () => {
-
   const [select, setSelect] = useState('Home');
+  const [scrolled, setScrolled] = useState(false);
 
   const handleClick = (item) => {
     setSelect(item);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true); // Apply gradient background when scrolling down
+      } else {
+        setScrolled(false); // Keep it transparent when at the top
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <div className='navbar'>
+    <div className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-left">
-        <p className='head-logo'>Movie Tube</p>
+        <p className="head-logo">Movie Tube</p>
         <ul>
-          <li onClick={() => handleClick('Home')} className={select === 'Home' ? 'TabSelected' : ''}>Home</li> 
-          <li onClick={() => handleClick('Movies')} className={select === 'Movies' ? 'TabSelected' : ''}>Movies</li> 
-          <li onClick={() => handleClick('Series')} className={select === 'Series' ? 'TabSelected' : ''}>Series</li> 
-          <li onClick={() => handleClick('Kids')} className={select === 'Kids' ? 'TabSelected' : ''}>Kids</li> 
+          <li onClick={() => handleClick('Home')} className={select === 'Home' ? 'TabSelected' : ''}>Home</li>
+          <li onClick={() => handleClick('Movies')} className={select === 'Movies' ? 'TabSelected' : ''}>Movies</li>
+          <li onClick={() => handleClick('Series')} className={select === 'Series' ? 'TabSelected' : ''}>Series</li>
+          <li onClick={() => handleClick('Kids')} className={select === 'Kids' ? 'TabSelected' : ''}>Kids</li>
           <li onClick={() => handleClick('Contacts')} className={select === 'Contacts' ? 'TabSelected' : ''}>Contacts</li>
         </ul>
       </div>
       <div className="navbar-right">
-        <Search className='icons' />
-        <Sun className='icons' />
+        <Search className="icons" />
+        <Sun className="icons" />
         <div className="navbar-profile">
-          <CircleUserRound className='icons' />
-          <ChevronDown className='icons' />
+          <CircleUserRound className="icons" />
+          <ChevronDown className="icons" />
           <div className="dropdown">
             <p>Profile</p>
             <p>Settings</p>
@@ -40,7 +49,7 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-  )
-}
-<Search  />
-export default Navbar
+  );
+};
+
+export default Navbar;

@@ -87,5 +87,29 @@
 .moviecards-container{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 6%;
+    gap: 2rem;
+} 
+
+
+
+@media (max-width: 768px) {
+    .moviecards-container{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-area: auto;
+        gap: 2rem;
+    } 
+}
+
+@media (max-width: 480px) {
+    .moviecards-container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-area: auto;
+        gap: 2rem;
+    } 
+    .moviecards-container{
+        gap: 0;
+    } 
+    
 }
