@@ -4,6 +4,7 @@ import { fetchMovies, fetchVideos } from "../utils/api.js";
 import { Flame, Play } from "lucide-react";
 import MovieCard from "../components/MovieCard/MovieCard.jsx";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Searchbar from "../components/SearchBar/Searchbar.jsx"
 
 const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -13,15 +14,19 @@ const Home = () => {
   const [movies, setMovies] = useState([]);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
+  const [query, setQuery] = useState('');
 
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const data = await fetchMovies(0);
+        const data = await fetchMovies(query,1);
         setMovies(data);
-        setBanner(data); 
-        setPage(1);
+        if(!query){
+          setBanner(data);
+        }
+        setHasMore(true);
+        setPage(2);
       } catch (error) {
         console.error("Error fetching movies:", error);
       } finally {
@@ -29,14 +34,18 @@ const Home = () => {
       }
     };
     loadData();
-  }, []);
+  }, [query]);
 
 
   const loadMoreMovies = async () => {
     try {
-      const data = await fetchMovies(page);
+      const data = await fetchMovies(query,page);
       setMovies((prevMovies) => [...prevMovies, ...data]);
-      setPage((prevPage) => prevPage + 1);
+      if(!query){
+        setPage((prevPage) => prevPage + 1);
+      }else{
+        setPage(1)
+      }
       if (data.length === 0) setHasMore(false);
     } catch (error) {
       console.error("Error loading more movies:", error);
@@ -73,7 +82,7 @@ const Home = () => {
 
   return (
     <>
-
+      <Searchbar onSearch={setQuery}/>
       {banner.length > 0 && (
         <div className="hero">
           <img

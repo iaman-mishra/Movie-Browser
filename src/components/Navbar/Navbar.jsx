@@ -36,10 +36,10 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-right"> 
-        <div className="dropdown-search">
+        {/* <div className="dropdown-search">
           <input  value='' type="text" placeholder="Search here.." />
-        </div>
-        {/* <Search className="icons" /> */}
+        </div> */}
+        <Search className="icons" />
         <Sun className="icons" />
         <div className="navbar-profile">
           <CircleUserRound className="icons" />

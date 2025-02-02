@@ -1,0 +1,20 @@
+
+.dropdown-search input{
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    background: inherit;
+    color: inherit;
+    z-index: 150;
+    position: fixed;
+    right: 20%;
+    top: 3%;
+  }
+  
+  .dropdown-search input::placeholder{
+    color: white;
+  }
+  
+  input:focus, select:focus{
+    outline:none;
+  }
