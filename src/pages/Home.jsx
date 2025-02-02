@@ -96,7 +96,7 @@ const Home = () => {
           </div>
           <div className="banner-buttons">
             <div className="button">
-              <Play />
+              <Play className="paly"/>
               {videos.length > 0 ? (
                 <a href={`https://www.youtube.com/watch?v=${videos[0]?.key}`} target="_blank" rel="noopener noreferrer">
                   <p>Trailer</p>

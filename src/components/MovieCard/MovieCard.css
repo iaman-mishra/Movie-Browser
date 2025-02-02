@@ -90,7 +90,7 @@
 
 @media (max-width: 480px) {
     .movie-card{
-        height: 80%;
+        height: 90%;
     }
     .cardbox-layer h3 {
         font-size: 3vw;

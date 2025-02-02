@@ -5,7 +5,7 @@
     border-radius: 1rem;
     background: inherit;
     color: inherit;
-    z-index: 150;
+    z-index: 500;
     position: fixed;
     right: 20%;
     top: 3%;
@@ -18,3 +18,11 @@
   input:focus, select:focus{
     outline:none;
   }
+
+@media (max-width: 768px) {
+
+  .dropdown-search input{
+    right: 5%;
+  }
+  
+}

@@ -27,7 +27,7 @@ const Navbar = () => {
     <div className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="navbar-left">
         <p className="head-logo">Movie Tube</p>
-        <ul>
+        <ul className='nav-menu'>
           <li onClick={() => handleClick('Home')} className={select === 'Home' ? 'TabSelected' : ''}>Home</li>
           <li onClick={() => handleClick('Movies')} className={select === 'Movies' ? 'TabSelected' : ''}>Movies</li>
           <li onClick={() => handleClick('Series')} className={select === 'Series' ? 'TabSelected' : ''}>Series</li>
@@ -36,9 +36,6 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-right"> 
-        {/* <div className="dropdown-search">
-          <input  value='' type="text" placeholder="Search here.." />
-        </div> */}
         <Search className="icons" />
         <Sun className="icons" />
         <div className="navbar-profile">
