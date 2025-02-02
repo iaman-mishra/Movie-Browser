@@ -33,7 +33,7 @@
     bottom: 15%;
     left: 5%;
     display: flex;
-    gap: 2rem;
+    gap: 2vw;
 }
 
 .button{
@@ -73,14 +73,14 @@
 }
 
 .movie-card-section h1{
-    font-size: 3vw;
+    font-size: 5vw;
     font-weight: 600;
 }
 
 
 .fire{
-    width:3%;
-    height: 3%;
+    width:5vw;
+    height: 5vw;
     color: red;
 }
 
