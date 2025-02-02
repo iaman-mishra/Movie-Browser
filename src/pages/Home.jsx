@@ -52,6 +52,9 @@ const Home = () => {
     }
   };
 
+  const videoKey = videos.find((video) => video.type === "Trailer")?.key || videos[0]?.key;
+
+
 
   useEffect(() => {
     if (banner.length === 0) return;
@@ -98,7 +101,7 @@ const Home = () => {
             <div className="button">
               <Play className="paly"/>
               {videos.length > 0 ? (
-                <a href={`https://www.youtube.com/watch?v=${videos[0]?.key}`} target="_blank" rel="noopener noreferrer">
+                <a href={`https://www.youtube.com/watch?v=${videoKey}`} target="_blank" rel="noopener noreferrer">
                   <p>Trailer</p>
                 </a>
               ) : (
@@ -130,6 +133,7 @@ const Home = () => {
                 rating={movie.vote_average}
                 overview={movie.overview}
                 image={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                id={movie.id}
               />
             ))}
           </div>

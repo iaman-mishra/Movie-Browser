@@ -1,8 +1,27 @@
 import React from 'react';
 import './MovieCard.css';
 import { Link2 } from 'lucide-react';
+import {fetchVideos} from '../../utils/api.js';
+import { useState,useEffect } from 'react';
 
-const MovieCard = ({title,year,rating,overview,image}) => {
+const MovieCard = ({title,year,rating,overview,image,id}) => {
+
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    const getVideos = async () => {
+      try {
+        const data = await fetchVideos(id);
+        setVideos(data); 
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    getVideos();
+  }, [id]);
+
+  const videoKey = videos.find((video) => video.type === "Trailer")?.key || videos[0]?.key;
+
   return (
     <div className="movie-card">
       <div className="cardbox">
@@ -12,7 +31,7 @@ const MovieCard = ({title,year,rating,overview,image}) => {
           <p className='year'>{year}</p>
           <p className='rating'>{rating}/10</p>
           <p className='overview'>{overview}</p>
-          <a href="#" target="_blank" rel="noopener noreferrer">
+          <a href={`https://www.youtube.com/watch?v=${videoKey}`} target="_blank" rel="noopener noreferrer">
             <Link2 />
           </a>
         </div>
