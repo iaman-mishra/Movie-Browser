@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import { Search, Sun, CircleUserRound, ChevronDown, Quote } from 'lucide-react';
+import { Search, Sun, CircleUserRound, ChevronDown, Quote, Link2 } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [select, setSelect] = useState('Home');
@@ -28,11 +29,11 @@ const Navbar = () => {
       <div className="navbar-left">
         <p className="head-logo">Movie Tube</p>
         <ul className='nav-menu'>
-          <li onClick={() => handleClick('Home')} className={select === 'Home' ? 'TabSelected' : ''}>Home</li>
-          <li onClick={() => handleClick('Movies')} className={select === 'Movies' ? 'TabSelected' : ''}>Movies</li>
-          <li onClick={() => handleClick('Series')} className={select === 'Series' ? 'TabSelected' : ''}>Series</li>
-          <li onClick={() => handleClick('Kids')} className={select === 'Kids' ? 'TabSelected' : ''}>Kids</li>
-          <li onClick={() => handleClick('Contacts')} className={select === 'Contacts' ? 'TabSelected' : ''}>Contacts</li>
+          <li onClick={() => handleClick('Home')} className={select === 'Home' ? 'TabSelected' : ''}><Link className='route-link' to='/'>Home</Link></li>
+          <li onClick={() => handleClick('Movies')} className={select === 'Movies' ? 'TabSelected' : ''}><Link className='route-link' to='/movies'>Movies</Link></li>
+          <li onClick={() => handleClick('Series')} className={select === 'Series' ? 'TabSelected' : ''}><Link className='route-link' to='/series'>Series</Link></li>
+          <li onClick={() => handleClick('Kids')} className={select === 'Kids' ? 'TabSelected' : ''}><Link className='route-link' to='/kids'>Kids</Link></li>
+          <li onClick={() => handleClick('Contacts')} className={select === 'Contacts' ? 'TabSelected' : ''}><Link className='route-link' to='/contacts'>Contacts</Link></li>
         </ul>
       </div>
       <div className="navbar-right"> 

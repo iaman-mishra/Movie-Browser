@@ -15,6 +15,10 @@
   gap: 3rem;
 }
 
+.route-link{
+  color: white;
+}
+
 .head-logo{
   font-weight: bold;
   color: red;
